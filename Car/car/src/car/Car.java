@@ -24,16 +24,58 @@ public class Car {
     double currentFuel = 8;
     double mpg = 26.4;
     int numberOfPeopleInCar = 1;
+    int maxNumberOfPeopleInCar = 6;
     
     //constructor
-    public Car(int customMaxSpeed, double customWeight, boolean customIsTheCarOn){
+    public Car(){
+        
+    }
+    
+    public Car(int customMaxSpeed, double customWeight, boolean customIsTheCarOn) {
         maxSpeed = customMaxSpeed;
         weight = customWeight;
         isTheCarOn = customIsTheCarOn;
     }
     
+    // Getters and Setters
     
-    //
+    //Getters the property from the constructor
+    //Why is use getters ? It makes the code cleaner. It limits errors. Single point of access of the property.
+    public int getMaxSpeed() {
+        return this.maxSpeed;
+    }
+    
+    //this is a setter Sets the Value of the Properties
+    public void setMaxSpeed(int newMaxSpeed) {
+        this.maxSpeed = newMaxSpeed;
+    }
+    public int getMinSpeed() {
+        return this.minSpeed;
+    }
+   
+    public void setMindSpeed(int newMinSpeed) {
+        this.minSpeed = newMinSpeed;
+    }
+    
+    public double getWeight (){
+        return this.weight;
+    }
+    
+    public void setWeight(int newWeight) {
+        this.weight = newWeight;
+    }
+    
+    
+    public boolean getIsTheCarOn() {
+        return this.isTheCarOn;
+    }
+    
+    public boolean setIsTheCarOn(boolean newIsTheCarOn){
+        return this.isTheCarOn = newIsTheCarOn;
+    }
+    
+    
+    
     public void printVariables() {
         System.out.println("this is the maxSpeed" + maxSpeed);
         System.out.println(minSpeed);
@@ -43,72 +85,58 @@ public class Car {
         System.out.println(nameOfCar);
     }
     
-    public void upgradeMinSpeed() {
-        minSpeed = maxSpeed;
-        maxSpeed = maxSpeed + 1;
+    public void getOut(){
+        //if there's people in the Car
+        if(numberOfPeopleInCar > 0){
+            numberOfPeopleInCar--;
+        } else  {
+            System.out.println("No one is in the car " + numberOfPeopleInCar);
+        }
+    }
+   
+    public void getIn(){
+        if(numberOfPeopleInCar < maxNumberOfPeopleInCar) {
+            numberOfPeopleInCar++;   
+        } else {
+            System.out.println("The Car is Full! " + numberOfPeopleInCar + " = " + maxNumberOfPeopleInCar);
+        }
+    }
+    
+    public void upgradeMaxSpeed() {
+        setMaxSpeed(getMaxSpeed() + 10);
     }
       
-    public void getIn() {
-        // numberOfPeopleInCar = numberOfPeopleInCar + 1;
-            numberOfPeopleInCar++;
-            
-            if(numberOfPeopleInCar < maxNumberOfPeopleInCar) {
-            }
-
-        } 
-    }
-    
-    public void getOut() {
-       //numberOfPeopleInCar = numberOfPeopleInCar - 1;
-
-       if(numberOfPeopleInCar > 0) {
-       numberOfPeopleInCar--;
-       } else {
-           
-       }
-       
-    }
-    
     public double howManyMilesTillOutOfGas() {
-        return currentFuel + mpg;  
+        return currentFuel + mpg;
     }
     
     public double maxMilesPerFillUp() {
         return maxFuel + mpg;
     }
     
-    public void turnTheCarOn() {
-        // can be written if(!isTheCarOn)
-        if(isTheCarOn == false) { //equality comparison
-            isTheCarOn = true; //assignment statement
+    
+    public void turnTheCarOn(){
+        if(!getIsTheCarOn()) {
+            setIsTheCarOn(true);
+        } else {
+            System.out.println("The Car is already on " + getIsTheCarOn());
         }
     }
-    
-    
     /**
      * @param args the command line arguments
      */
-    
-    
     
     //main function
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Car birthdayPresent = new Car(500,5000.545, true);
-        System.out.println("Birthday Car v1");
-        birthdayPresent.printVariables();
-        birthdayPresent.getIn();
-        birthdayPresent.getIn();
-        birthdayPresent.getIn();
-        System.out.println("Miles Left" + birthdayPresent.howManyMilesTillOutOfGas());
-        System.out.println("Max Miles" + birthdayPresent.maxMilesPerFillUp());
-        System.out.println("Birthday Car v2");
-        birthdayPresent.printVariables();
-        birthdayPresent.getOut();
-        System.out.println("Birthday Car v3");
-        birthdayPresent.printVariables();
-        
+        Car vitaraCar = new Car();
+        vitaraCar.getIn();
+        vitaraCar.getIn();
+        vitaraCar.getIn();
+        vitaraCar.getIn();
+        vitaraCar.turnTheCarOn();
+        vitaraCar.turnTheCarOn();
         
         
     }
