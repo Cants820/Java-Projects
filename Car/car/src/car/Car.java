@@ -32,9 +32,9 @@ public class Car {
     }
     
     public Car(int customMaxSpeed, double customWeight, boolean customIsTheCarOn) {
-        maxSpeed = customMaxSpeed;
-        weight = customWeight;
-        isTheCarOn = customIsTheCarOn;
+        this.maxSpeed = customMaxSpeed;
+        this.weight = customWeight;
+        this.isTheCarOn = customIsTheCarOn;
     }
     
     // Getters and Setters
