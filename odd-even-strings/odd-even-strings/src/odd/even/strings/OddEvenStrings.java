@@ -5,6 +5,8 @@
  */
 package odd.even.strings;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Joseph
@@ -15,7 +17,34 @@ public class OddEvenStrings {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+       Scanner scanner = new Scanner(System.in); 
+       
+       int T = scanner.nextInt();
+       String s;
+       
+       for(int i = 0; i < T;i++){
+           s=scanner.next();
+           
+           for(int j = 0; j < s.length(); j++) {
+               if(j%2==0) {
+                   System.out.print(s.charAt(j));
+               }
+           }
+           System.out.print(" ");
+           for (int j = 0; j < s.length(); j++) {
+               if(j%2==1){
+                     System.out.print(s.charAt(j));
+               }
+           }
+           System.out.println();
+       }
+       
+       
+       
+       
+        
     }
     
 }
